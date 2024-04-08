@@ -1,0 +1,12 @@
+{
+    "introduction": "Introduction",
+    "getting-started": "Getting Started",
+    "-- More": {
+        "type": "separator",
+        "title": "More"
+    },
+    "about-link": {
+        "title": "Another Page",
+        "href": "/about"
+    }
+}

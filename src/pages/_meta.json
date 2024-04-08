@@ -1,0 +1,21 @@
+{
+    "index": {
+        "type": "page",
+        "display": "hidden",
+        "theme": {
+            "timestamp": false,
+            "layout": "full"
+        }
+    },
+    "docs": {
+        "type": "page",
+        "title": "Docs"
+    },
+    "404": {
+        "type": "page",
+        "theme": {
+            "typesetting": "article",
+            "timestamp": false
+        }
+    }
+}
