@@ -8,5 +8,6 @@
     "about-link": {
         "title": "Another Page",
         "href": "/about"
-    }
+    },
+    "pokemon": "All Pokémon (Remote Content)"
 }

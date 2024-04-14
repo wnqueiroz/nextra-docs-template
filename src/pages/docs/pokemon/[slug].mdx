@@ -1,0 +1,37 @@
+import { RemoteContent } from "nextra/data";
+import { buildDynamicMDX, buildDynamicMeta } from "nextra/remote";
+import { getPokemonList, generatePokemonMarkdown } from '@/utils';
+
+export async function getStaticProps({ params: { slug: name } }) {
+  console.log({
+    info: `src/pages/docs/pokemon/[slug].mdx->getStaticProps: running`
+  });
+  const content = await generatePokemonMarkdown(name)
+
+  return {
+    props: {
+      ...(await buildDynamicMDX(content, {
+        defaultShowCopyCode: true,
+      })),
+      ...(await buildDynamicMeta()),
+    },
+    revalidate: 10,
+  };
+}
+
+export async function getStaticPaths() {
+  console.log({
+    info: `src/pages/docs/pokemon/[slug].mdx->getStaticPaths: running`
+  });
+
+  const data = await getPokemonList();
+
+  const paths = data.map(({ name }) => ({ params: { slug: name } })) // [{ "params": { "slug": "bulbasaur" } }]
+
+  return {
+    paths,
+    fallback: false, // @see https://nextjs.org/docs/pages/api-reference/functions/get-static-paths#fallback-false
+  };
+}
+
+<RemoteContent />
